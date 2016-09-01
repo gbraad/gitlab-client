@@ -4,7 +4,7 @@ from prettytable import PrettyTable
 
 def main():
     config = ConfigParser.ConfigParser()
-    config.read([os.path.expanduser('~/.issues.cfg')])
+    config.read([os.path.expanduser('~/.gitlab.cfg')])
     host = config.get("default", "host")
     token = config.get("default", "token")
     project = config.get("default", "project")

@@ -1,5 +1,5 @@
-Simple GitLab issues manager
-============================
+Simple GitLab client 
+====================
 
 .. WIP ..
 
@@ -11,13 +11,13 @@ Installation
 $ sudo pip install -r requirements.txt --allow-all-external && sudo python setup.py install
 ```
 
-Create a `~/.issues.cfg` file with the following content:
+Create a `~/.gitlab.cfg` file with the following content:
 
 ```
 [default]
 host=https://gitlab.com
 token=
-project=gbraad/gitlab-issues
+project=gbraad/gitlab-client
 ```
 
 
