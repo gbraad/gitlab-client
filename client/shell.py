@@ -10,6 +10,7 @@ class GitLabShell():
 
     def __init__(self):
         self.config = {}
+        self.gitlab = self.connect()
         
     def connect(self):
         self.config = ConfigParser.ConfigParser()
@@ -19,14 +20,13 @@ class GitLabShell():
         return gitlab.Gitlab(host=host, token=token)
 
     def issues(self):
-        lab = self.connect()
         projectname = self.config.get("default", "project")
-        project = lab.getproject(projectname)
+        project = self.gitlab.getproject(projectname)
         table = PrettyTable(["Title","Labels","State"])
         table.align["Title"] = "l"
         table.align["Labels"] = "l"
         
-        issues = lab.getprojectissues(project["id"])
+        issues = self.gitlab.getprojectissues(project["id"])
         for issue in issues:
             title = issue['title']
             labels = ",".join(issue['labels'])
